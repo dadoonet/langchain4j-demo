@@ -29,3 +29,10 @@ We can use the great [Ollama project](https://ollama.com/). It helps to run a LL
 on your machine.
 
 See [Step3OllamaTest.java](src/test/java/fr/pilato/demo/Step3OllamaTest.java) class.
+
+### Demo 4: add Memory
+
+When asking consecutive questions, we need to remember the context of the 
+discussion.
+
+See [Step4WithMemoryTest.java](src/test/java/fr/pilato/demo/Step4WithMemoryTest.java) class.
