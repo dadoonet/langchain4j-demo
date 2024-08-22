@@ -36,3 +36,7 @@ When asking consecutive questions, we need to remember the context of the
 discussion.
 
 See [Step4WithMemoryTest.java](src/test/java/fr/pilato/demo/Step4WithMemoryTest.java) class.
+
+### Demo 5: generate embeddings
+
+See [Step5EmbedddingsTest.java](src/test/java/fr/pilato/demo/Step5EmbedddingsTest.java) class.
