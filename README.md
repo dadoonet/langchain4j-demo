@@ -40,3 +40,8 @@ See [Step4WithMemoryTest.java](src/test/java/fr/pilato/demo/Step4WithMemoryTest.
 ### Demo 5: generate embeddings
 
 See [Step5EmbedddingsTest.java](src/test/java/fr/pilato/demo/Step5EmbedddingsTest.java) class.
+
+### Demo 6: store embeddings in Memory and in Elasticsearch
+
+See [Step6ElasticsearchEmbedddingsTest.java](src/test/java/fr/pilato/demo/Step6ElasticsearchEmbedddingsTest.java) class.
+
