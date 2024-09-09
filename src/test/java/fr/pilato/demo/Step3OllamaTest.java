@@ -31,7 +31,8 @@ public class Step3OllamaTest extends AbstractParentTest {
     static String DOCKER_IMAGE_NAME = "langchain4j/ollama-" + MODEL_NAME + ":latest";
 
     static OllamaContainer ollama = new OllamaContainer(
-            DockerImageName.parse(DOCKER_IMAGE_NAME).asCompatibleSubstituteFor("ollama/ollama"));
+            DockerImageName.parse(DOCKER_IMAGE_NAME).asCompatibleSubstituteFor("ollama/ollama"))
+            .withReuse(true);
 
     @BeforeAll
     public static void setup() {
