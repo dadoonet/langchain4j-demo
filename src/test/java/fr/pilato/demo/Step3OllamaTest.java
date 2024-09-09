@@ -53,7 +53,6 @@ public class Step3OllamaTest extends AbstractParentTest {
         OllamaChatModel model = OllamaChatModel.builder()
                 .baseUrl(ollama.getEndpoint())
                 .modelName(MODEL_NAME)
-                .temperature(0.8)
                 .build();
 
         Assistant assistant = AiServices.create(Assistant.class, model);
