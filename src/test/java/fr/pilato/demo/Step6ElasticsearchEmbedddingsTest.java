@@ -56,9 +56,13 @@ public class Step6ElasticsearchEmbedddingsTest extends AbstractParentTest {
         // Start the container. This step might take some time...
         container.start();
 
+        // As we don't want to make our TestContainers code more complex than
+        // needed, we will use login / password for authentication.
+        // But note that you can also use API keys which is preferred.
         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials("elastic", "changeme"));
 
+        // Create a low level Rest client which connects to the elasticsearch container.
         client = RestClient.builder(HttpHost.create("https://" + container.getHttpHostAddress()))
                 .setHttpClientConfigCallback(httpClientBuilder -> {
                     httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
@@ -77,23 +81,23 @@ public class Step6ElasticsearchEmbedddingsTest extends AbstractParentTest {
                 .apiKey(getOpenAiApiKey())
                 .build();
         game1 = TextSegment.from("""
-                    The game starts off with the main character Guybrush Threepwood stating \"I want to be a pirate!\"
-                    To do so, he must prove himself to three old pirate captains. During the perilous pirate trials, 
-                    he meets the beautiful governor Elaine Marley, with whom he falls in love, unaware that the ghost pirate 
-                    LeChuck also has his eyes on her. When Elaine is kidnapped, Guybrush procures crew and ship to track 
+                    The game starts off with the main character Guybrush Threepwood stating "I want to be a pirate!"
+                    To do so, he must prove himself to three old pirate captains. During the perilous pirate trials,
+                    he meets the beautiful governor Elaine Marley, with whom he falls in love, unaware that the ghost pirate
+                    LeChuck also has his eyes on her. When Elaine is kidnapped, Guybrush procures crew and ship to track
                     LeChuck down, defeat him and rescue his love.
                 """, Metadata.from("gameName", "The Secret of Monkey Island"));
         response1 = model.embed(game1);
         game2 = TextSegment.from("""
-                    Out Run is a pseudo-3D driving video game in which the player controls a Ferrari Testarossa 
-                    convertible from a third-person rear perspective. The camera is placed near the ground, simulating 
-                    a Ferrari driver's position and limiting the player's view into the distance. The road curves, 
-                    crests, and dips, which increases the challenge by obscuring upcoming obstacles such as traffic 
+                    Out Run is a pseudo-3D driving video game in which the player controls a Ferrari Testarossa
+                    convertible from a third-person rear perspective. The camera is placed near the ground, simulating
+                    a Ferrari driver's position and limiting the player's view into the distance. The road curves,
+                    crests, and dips, which increases the challenge by obscuring upcoming obstacles such as traffic
                     that the player must avoid. The object of the game is to reach the finish line against a timer.
-                    The game world is divided into multiple stages that each end in a checkpoint, and reaching the end 
-                    of a stage provides more time. Near the end of each stage, the track forks to give the player a 
-                    choice of routes leading to five final destinations. The destinations represent different 
-                    difficulty levels and each conclude with their own ending scene, among them the Ferrari breaking 
+                    The game world is divided into multiple stages that each end in a checkpoint, and reaching the end
+                    of a stage provides more time. Near the end of each stage, the track forks to give the player a
+                    choice of routes leading to five final destinations. The destinations represent different
+                    difficulty levels and each conclude with their own ending scene, among them the Ferrari breaking
                     down or being presented a trophy.
                 """, Metadata.from("gameName", "Out Run"));
         response2 = model.embed(game2);
