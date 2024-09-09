@@ -45,3 +45,7 @@ See [Step5EmbedddingsTest.java](src/test/java/fr/pilato/demo/Step5EmbedddingsTes
 
 See [Step6ElasticsearchEmbedddingsTest.java](src/test/java/fr/pilato/demo/Step6ElasticsearchEmbedddingsTest.java) class.
 
+### Demo 7: search for similar vectors
+
+See [Step7SearchForVectorsTest.java](src/test/java/fr/pilato/demo/SearchForVectorsTest.java) class.
+
